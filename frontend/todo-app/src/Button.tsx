@@ -1,5 +1,5 @@
 type ButtonProps = {
-  buttontype: "additem" | "deleteitem"
+  buttontype: "addTask" | "deleteTask"
   onClick: () => void,
 
 }

@@ -1,5 +1,3 @@
-import RequestLogger from "@/middleware/RequestLogger";
-import { InternalServerErrorException } from "@/utils/exceptions/server";
 import { addToDeletionQueue, tasks, type task } from "@/utils/data";
 import { ConflictException, NotFoundException } from "@/utils/exceptions/client";
 
@@ -36,7 +34,7 @@ export async function updateTask(id: number, updates:{title?:string, completed?:
         taskToEdit.title = updates.title
     }
 
-    if(updates.completed){
+    if(typeof updates.completed === "boolean"){
         taskToEdit.completed = updates.completed;
     }
 }

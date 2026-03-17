@@ -1,12 +1,23 @@
 type ButtonProps = {
-  buttontype: "addTask" | "deleteTask"
-  onClick: () => void,
+  label: string;
+  onClick: () => void;
+  variant?: "primary" | "danger" | "secondary";
+};
 
-}
-const Button = ({buttontype, onClick}: ButtonProps) => {
-    return(
-        <button className="border-2 border-amber-600" onClick={onClick}>{buttontype}</button>
-    )
-}
+const Button = ({ label, onClick, variant = "primary" }: ButtonProps) => {
+    const base = "px-4 py-2 rounded-lg text-sm font-medium transition duration-200";
+
+    const styles = {
+        primary: "bg-blue-600 text-white hover:bg-blue-700",
+        secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
+        danger: "bg-red-500 text-white hover:bg-red-600",
+    };
+
+    return (
+        <button onClick={onClick} className={`${base} ${styles[variant]}`}>
+            {label}
+        </button>
+    );
+};
 
 export default Button;

@@ -4,7 +4,7 @@ import cors, { CorsOptions } from "cors";
 
 const allowedOrigins = [
     "*",
-    "http://localhost:3000",
+    "http://localhost:5173",
 ];
 
 export const corsVerifier: CorsOptions["origin"] = (origin, callback) => {

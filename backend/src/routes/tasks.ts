@@ -8,7 +8,7 @@ import z from "zod";
 const router = new AppRouter();
 const validator = createValidator();
 
-router.get("/", async(req, res) => {
+router.get("/", async(_req, res) => {
     const tasks = await getTasks();
     res.json(tasks);
 })
